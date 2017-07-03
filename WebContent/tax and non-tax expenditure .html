@@ -1,35 +1,43 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-	<style type="text/css">
-.piei{
-	width:25%;height:200px;float:left
+<meta charset="utf-8">
+<style type="text/css">
+.piei {
+	width: 22%;
+	height: 200px;
+	float: left;
+	margin-left:1%;
+	margin-right:1%;
+	border:1px solid grey;
 }
-.linei{
-	width:40%;
-	height:400px;
-	float:left;
-	margin-left:5%;
-	margin-right:5%;
+
+.linei {
+	width: 40%;
+	height: 400px;
+	float: left;
+	margin-left: 4%;
+	margin-right: 4%;
+	margin-top:50px;
+	border:1px solid grey;
 }
-	</style>
-    <!-- 引入 ECharts 文件 -->
-    <script src="echarts.js"></script>
+</style>
+<!-- 引入 ECharts 文件 -->
+<script src="echarts.js"></script>
 </head>
 <body>
-    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-    <div id="pie">
-	<div id="pie1" class="piei"></div>
-	<div id="pie2" class="piei"></div>
-	<div id="pie3" class="piei"></div>
-	<div id="pie4" class="piei"></div>
-    </div>
-	<div id="line">
-		<div id="line1" class="linei"></div>
-		<div id="line2" class="linei"></div>
+	<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+	<div id="pie" class="row">
+		<div id="pie1" class="piei col-md-3"></div>
+		<div id="pie2" class="piei col-md-3"></div>
+		<div id="pie3" class="piei col-md-3"></div>
+		<div id="pie4" class="piei col-md-3"></div>
 	</div>
- <script type="text/javascript" char>
+	<div id="line" class="row">
+		<div id="line1" class="linei col-md-6"></div>
+		<div id="line2" class="linei col-md-6"></div>
+	</div>
+	<script type="text/javascript" char>
         // 基于准备好的dom，初始化echarts实例
         var pie1= echarts.init(document.getElementById('pie1'));
 
