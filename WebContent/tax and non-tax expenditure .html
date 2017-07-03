@@ -2,14 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
 <style type="text/css">
 .piei {
-	width: 22%;
 	height: 200px;
-	float: left;
-	margin-left:1%;
-	margin-right:1%;
-	border:1px solid grey;
+	border: 1px solid grey;
 }
 
 .linei {
@@ -18,8 +15,8 @@
 	float: left;
 	margin-left: 4%;
 	margin-right: 4%;
-	margin-top:50px;
-	border:1px solid grey;
+	margin-top: 50px;
+	border: 1px solid grey;
 }
 </style>
 <!-- 引入 ECharts 文件 -->
@@ -28,274 +25,298 @@
 <body>
 	<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
 	<div id="pie" class="row">
-		<div id="pie1" class="piei col-md-3"></div>
-		<div id="pie2" class="piei col-md-3"></div>
-		<div id="pie3" class="piei col-md-3"></div>
-		<div id="pie4" class="piei col-md-3"></div>
+		<div class="col-md-3">
+			<div class="col-md-2"></div>
+			<div id="pie1" class="piei col-md-10"></div>
+		</div>
+		<div class="col-md-3">
+			<div class="col-md-1"></div>
+			<div id="pie2" class="piei col-md-10"></div>
+			<div class="col-md-1"></div>
+			
+		</div>
+		<div class="col-md-3">
+			<div class="col-md-1"></div>
+			<div id="pie3" class="piei col-md-10"></div>
+			<div class="col-md-1"></div>
+		</div>
+		<div class="col-md-3">
+			<div id="pie4" class="piei col-md-10"></div>
+			<div class="col-md-2"></div>
+		</div>
 	</div>
 	<div id="line" class="row">
 		<div id="line1" class="linei col-md-6"></div>
 		<div id="line2" class="linei col-md-6"></div>
 	</div>
 	<script type="text/javascript" char>
-        // 基于准备好的dom，初始化echarts实例
-        var pie1= echarts.init(document.getElementById('pie1'));
+		// 基于准备好的dom，初始化echarts实例
+		var pie1 = echarts.init(document.getElementById('pie1'));
 
-        // 指定图表的配置项和数据
-        var option = {
-            title: {
-                text: '2009年',
- 		x:'center'
-            },
-            tooltip: {
-		trigger:'item',
-formatter:"{a}<br/>{b}:{c}({d}%)"
-},
-            legend: {
-                
-            },
-            series: [{
-                name: '支出占比',
-                type: 'pie',
-		radius:'55%',
-		center:['50%','60%'],
-                data: [
-			{value:79,name:'税收收入'},
-			{value:21,name:'非税收入'}
-		],
-            itemStyle: {
+		// 指定图表的配置项和数据
+		var option = {
+			title : {
+				text : '2009年',
+				x : 'center'
+			},
+			tooltip : {
+				trigger : 'item',
+				formatter : "{a}<br/>{b}:{c}({d}%)"
+			},
+			legend : {
+				
+			},
+			series : [ {
+				name : '支出占比',
+				type : 'pie',
+				radius : '55%',
+				center : [ '50%', '60%' ],
+				data : [ {
+					value : 79,
+					name : '税收收入'
+				}, {
+					value : 21,
+					name : '非税收入'
+				} ],
+				itemStyle : {
 
-                emphasis: {
- 
-                    shadowBlur: 10,
+					emphasis : {
 
-                    shadowOffsetX: 0,
+						shadowBlur : 10,
 
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+						shadowOffsetX : 0,
 
-                }
+						shadowColor : 'rgba(0, 0, 0, 0.5)'
 
-            }
+					}
 
-            }]
-        };
+				}
 
-        // 使用刚指定的配置项和数据显示图表。
-        pie1.setOption(option);
+			} ]
+		};
 
- var pie2= echarts.init(document.getElementById('pie2'));
+		// 使用刚指定的配置项和数据显示图表。
+		pie1.setOption(option);
 
-        // 指定图表的配置项和数据
-        var option = {
-            title: {
-                text: '2010年',
- 		x:'center'
-            },
-            tooltip: {
-		trigger:'item',
-formatter:"{a}<br/>{b}:{c}({d}%)"
-},
-            legend: {
-                
-            },
-            series: [{
-                name: '支出占比',
-                type: 'pie',
-		radius:'55%',
-		center:['50%','60%'],
-                data: [
-			{value:80,name:'税收收入'},
-			{value:20,name:'非税收入'}
-		],
-            itemStyle: {
+		var pie2 = echarts.init(document.getElementById('pie2'));
 
-                emphasis: {
- 
-                    shadowBlur: 10,
+		// 指定图表的配置项和数据
+		var option = {
+			title : {
+				text : '2010年',
+				x : 'center'
+			},
+			tooltip : {
+				trigger : 'item',
+				formatter : "{a}<br/>{b}:{c}({d}%)"
+			},
+			legend : {
 
-                    shadowOffsetX: 0,
+			},
+			series : [ {
+				name : '支出占比',
+				type : 'pie',
+				radius : '55%',
+				center : [ '50%', '60%' ],
+				data : [ {
+					value : 80,
+					name : '税收收入'
+				}, {
+					value : 20,
+					name : '非税收入'
+				} ],
+				itemStyle : {
 
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+					emphasis : {
 
-                }
+						shadowBlur : 10,
 
-            }
+						shadowOffsetX : 0,
 
-            }]
-        };
+						shadowColor : 'rgba(0, 0, 0, 0.5)'
 
-        // 使用刚指定的配置项和数据显示图表。
-        pie2.setOption(option);
+					}
 
- var pie3= echarts.init(document.getElementById('pie3'));
+				}
 
-        // 指定图表的配置项和数据
-        var option = {
-            title: {
-                text: '2011年',
- 		x:'center'
-            },
-            tooltip: {
-		trigger:'item',
-formatter:"{a}<br/>{b}:{c}({d}%)"
-},
-            legend: {
-                
-            },
-            series: [{
-                name: '支出占比',
-                type: 'pie',
-		radius:'55%',
-		center:['50%','60%'],
-                data: [
-			{value:78,name:'税收收入'},
-			{value:22,name:'非税收入'}
-		],
-            itemStyle: {
+			} ]
+		};
 
-                emphasis: {
- 
-                    shadowBlur: 10,
+		// 使用刚指定的配置项和数据显示图表。
+		pie2.setOption(option);
 
-                    shadowOffsetX: 0,
+		var pie3 = echarts.init(document.getElementById('pie3'));
 
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		// 指定图表的配置项和数据
+		var option = {
+			title : {
+				text : '2011年',
+				x : 'center'
+			},
+			tooltip : {
+				trigger : 'item',
+				formatter : "{a}<br/>{b}:{c}({d}%)"
+			},
+			legend : {
 
-                }
+			},
+			series : [ {
+				name : '支出占比',
+				type : 'pie',
+				radius : '55%',
+				center : [ '50%', '60%' ],
+				data : [ {
+					value : 78,
+					name : '税收收入'
+				}, {
+					value : 22,
+					name : '非税收入'
+				} ],
+				itemStyle : {
 
-            }
+					emphasis : {
 
-            }]
-        };
+						shadowBlur : 10,
 
-        // 使用刚指定的配置项和数据显示图表。
-        pie3.setOption(option);
+						shadowOffsetX : 0,
 
- var pie4= echarts.init(document.getElementById('pie4'));
+						shadowColor : 'rgba(0, 0, 0, 0.5)'
 
-        // 指定图表的配置项和数据
-        var option = {
-            title: {
-                text: '2012年',
- 		x:'center'
-            },
-            tooltip: {
-		trigger:'item',
-formatter:"{a}<br/>{b}:{c}({d}%)"
-},
-            legend: {
-                
-            },
-            series: [{
-                name: '支出占比',
-                type: 'pie',
-		radius:'55%',
-		center:['50%','60%'],
-                data: [
-			{value:75,name:'税收收入'},
-			{value:25,name:'非税收入'}
-		],
-            itemStyle: {
+					}
 
-                emphasis: {
- 
-                    shadowBlur: 10,
+				}
 
-                    shadowOffsetX: 0,
+			} ]
+		};
 
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+		// 使用刚指定的配置项和数据显示图表。
+		pie3.setOption(option);
 
-                }
+		var pie4 = echarts.init(document.getElementById('pie4'));
 
-            }
+		// 指定图表的配置项和数据
+		var option = {
+			title : {
+				text : '2012年',
+				x : 'center'
+			},
+			tooltip : {
+				trigger : 'item',
+				formatter : "{a}<br/>{b}:{c}({d}%)"
+			},
+			legend : {
 
-            }]
-        };
+			},
+			series : [ {
+				name : '支出占比',
+				type : 'pie',
+				radius : '55%',
+				center : [ '50%', '60%' ],
+				data : [ {
+					value : 75,
+					name : '税收收入'
+				}, {
+					value : 25,
+					name : '非税收入'
+				} ],
+				itemStyle : {
 
-        // 使用刚指定的配置项和数据显示图表。
-        pie4.setOption(option);
+					emphasis : {
 
-var line1= echarts.init(document.getElementById('line1'));	
-	line1.setOption({
-	tooltip:{
-		trigger:'axis'
-	},
-	legend:{
-		data:['税收占比%','非税占比%']
-	},
-	grid:{
-		left:'3%',
-		right:'3%',
-		bottom:'3%',
-		containLabel:true
-	},
-	xAxis:{
-		type:'category',
-		boundaryGap:false,
-		data:['2009','2010','2011','2012']
-	},
-	yAxis:{
-		type:'value',
-		max:100,
-		axisLabel:{
-			formatter:'{value}%'
-		}
-	},
-	series:[
-		{
-			name:'税收占比%',
-			type:'line',
-			data:[79,80,78,75]
-		},{
-			name:'非税占比%',
-			type:'line',
-			data:[21,20,22,25]
-		}
-	],
+						shadowBlur : 10,
 
-});
+						shadowOffsetX : 0,
 
+						shadowColor : 'rgba(0, 0, 0, 0.5)'
 
-var line2= echarts.init(document.getElementById('line2'));	
-	line2.setOption({
-	tooltip:{
-		trigger:'axis'
-	},
-	legend:{
-		data:['税收占比增速%','非税占比增速%']
-	},
-	grid:{
-		left:'3%',
-		right:'3%',
-		bottom:'3%',
-		containLabel:true
-	},
-	xAxis:{
-		type:'category',
-		boundaryGap:false,
-		data:['2009','2010','2011','2012']
-	},
-	yAxis:{
-		type:'value',
-		max:20,
-		min:-15,
-		axisLabel:{
-			formatter:'{value}%'
-		}
-	},
-	series:[
-		{
-			name:'税收占比增速%',
-			type:'line',
-			data:[0,3,-4,-4]
-		},{
-			name:'非税占比增速%',
-			type:'line',
-			data:[0,-10,15,12]
-		}
-	],
+					}
 
-});
-    </script>
+				}
+
+			} ]
+		};
+
+		// 使用刚指定的配置项和数据显示图表。
+		pie4.setOption(option);
+
+		var line1 = echarts.init(document.getElementById('line1'));
+		line1.setOption({
+			tooltip : {
+				trigger : 'axis'
+			},
+			legend : {
+				bottom:5,
+				data : [ '税收占比%', '非税占比%' ]
+			},
+			grid : {
+				left : '3%',
+				right : '3%',
+				bottom : '10%',
+				containLabel : true
+			},
+			xAxis : {
+				type : 'category',
+				boundaryGap : false,
+				data : [ '2009', '2010', '2011', '2012' ]
+			},
+			yAxis : {
+				type : 'value',
+				max : 100,
+				axisLabel : {
+					formatter : '{value}%'
+				}
+			},
+			series : [ {
+				name : '税收占比%',
+				type : 'line',
+				data : [ 79, 80, 78, 75 ]
+			}, {
+				name : '非税占比%',
+				type : 'line',
+				data : [ 21, 20, 22, 25 ]
+			} ],
+
+		});
+
+		var line2 = echarts.init(document.getElementById('line2'));
+		line2.setOption({
+			tooltip : {
+				trigger : 'axis'
+			},
+			legend : {
+				bottom:5,
+				data : [ '税收占比增速%', '非税占比增速%' ]
+			},
+			grid : {
+				left : '3%',
+				right : '3%',
+				bottom : '10%',
+				containLabel : true
+			},
+			xAxis : {
+				type : 'category',
+				boundaryGap : false,
+				data : [ '2009', '2010', '2011', '2012' ]
+			},
+			yAxis : {
+				type : 'value',
+				max : 20,
+				min : -15,
+				axisLabel : {
+					formatter : '{value}%'
+				}
+			},
+			series : [ {
+				name : '税收占比增速%',
+				type : 'line',
+				data : [ 0, 3, -4, -4 ]
+			}, {
+				name : '非税占比增速%',
+				type : 'line',
+				data : [ 0, -10, 15, 12 ]
+			} ],
+
+		});
+	</script>
 </body>
 </html>
