@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- 引入 ECharts 文件 -->
+<script src="echarts.js"></script>
+</head>
+<body>
+	<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+	<div id="main" style="width: 500px; height: 300px;"></div>
+	<script type="text/javascript" char>
+		// 基于准备好的dom，初始化echarts实例
+		var main = echarts.init(document.getElementById('main'));
+
+		// 指定图表的配置项和数据
+		var option = {
+			tooltip : {
+				trigger : 'axis',
+				axisPointer : {// 坐标轴指示器，坐标轴触发有效
+					type : 'shadow'// 默认为直线，可选为：'line' | 'shadow'
+				}
+			},
+			legend : {
+				right : 5,
+				top:100,
+				orient:'vertical',
+				data : [ '公共财政预算收入', '线性(公共财政预算收入)' ]
+			},
+			label:{
+				normal:{
+					//show:true,
+					position:'top'
+				}
+			},
+			xAxis : [ {
+				type : 'category',
+				data : [ '2009年', '2010年', '2011年', '2012年' ],
+				show:false
+			} ],
+			yAxis : [ {
+			//type:'value',
+				show:true
+			} ],
+			series : [ {
+				name : '公共财政预算收入',
+				type : 'line',
+				itemStyle:{
+					normal:{
+						color:'blue'
+					}
+				},
+				data : [ 2302.88, 2733.02, 3400.49, 4244.1 ]
+			}, {
+				name : '线性(公共财政预算收入)',
+				type : 'line',
+				data : [ 2200, 2800, 3400, 4200 ],
+				lineStyle:{
+					normal:{
+						color:'red'
+					}
+				}
+			} ]
+		};
+
+		// 使用刚指定的配置项和数据显示图表。
+		main.setOption(option);
+		
+	</script>
+</body>
+</html>
