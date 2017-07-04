@@ -6,6 +6,9 @@
 <style type="text/css">
 .linei {
 	height: 400px;
+	border: 1px solid grey;
+	margin: 50px;
+	border-radius: 20px;
 }
 </style>
 <!-- 引入 ECharts 文件 -->
@@ -26,8 +29,8 @@
 		// 基于准备好的dom，初始化echarts实例
 		var line1 = echarts.init(document.getElementById('line1'));
 
-		// 指定图表的配置项和数据
-		var option = {
+		// 使用刚指定的配置项和数据显示图表。
+		line1.setOption({
 			title : {
 				text : '本级近年各季度收入变化趋势图',
 				x : 'center'
@@ -76,10 +79,63 @@
 				type : 'line',
 				data : [ 90, 92, 75, 74 ]
 			} ],
-		};
+		});
+
+		// 基于准备好的dom，初始化echarts实例
+		var line2 = echarts.init(document.getElementById('line2'));
 
 		// 使用刚指定的配置项和数据显示图表。
-		line1.setOption(option);
+		line2.setOption({
+			title : {
+				text : '本级近年各季度收入变化趋势图',
+				x : 'center'
+			},
+			tooltip : {
+				trigger : 'axis'
+			},
+			legend : {
+				top : 150,
+				right : 5,
+				itemGap : 30,
+				orient : 'vertical',
+				data : [ '2012年', '2011年', '2010年' ]
+			},
+
+			grid : {
+				left : '3%',
+				right : '3%',
+				bottom : '10%',
+				containLabel : true
+			},
+			xAxis : {
+				type : 'category',
+				boundaryGap : false,
+				data : [ '一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月',
+						'十月', '十一月', '十二月' ],
+				show : false
+			},
+			yAxis : {
+				type : 'value',
+				min : 0,
+				show : true
+			},
+			series : [ {
+				smooth : true,
+				name : '2012年',
+				type : 'line',
+				data : [ 100, 106, 102, 105, 108, 103, 90, 87, 0, 88, 84, 0 ]
+			}, {
+				smooth : true,
+				name : '2011年',
+				type : 'line',
+				data : [ 95, 97, 99, 100, 96, 102, 85, 89, 0, 86, 84, 0 ]
+			}, {
+				smooth : true,
+				name : '2010年',
+				type : 'line',
+				data : [ 90, 88, 92, 91, 92, 86, 80, 75, 0, 79, 74, 0 ]
+			} ],
+		});
 	</script>
 </body>
 </html>
